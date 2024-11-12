@@ -1,0 +1,20 @@
+version: '3'
+services:
+  occu:
+    container_name: homeautomation-occu
+    # image: homeautomation-occu
+    build: ./occu
+    volumes:
+      - ~/homeautomation/occu:/data
+    restart: always
+    devices:
+      - "/dev/ttyUSB0:/dev/ttyUSB0"
+      - "/dev/raw_uart:/dev/raw_uart"
+      - "/dev/eq3loop:/dev/eq3loop"
+      - "/dev/mmd_bidcos:/dev/mmd_bidcos"
+      - "/dev/mmd_hmip:/dev/mmd_hmip"
+    environment:
+      - TZ=Europe/Berlin
+    ports:
+      - "2010:2010"
+      # - "8124:80"
