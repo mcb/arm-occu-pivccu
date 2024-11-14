@@ -24,10 +24,10 @@ RUN curl -SLk https://github.com/eq-3/occu/archive/${OCCU_VERSION}.tar.gz | tar 
 ENV HM_HOME=/opt/hm LD_LIBRARY_PATH=/opt/hm/lib:${LD_LIBRARY_PATH}
 
 # Update config files
-COPY data/occu/crRFD.conf data/occu/log4j.xml data/occu/InterfacesList.xml /etc/config/
+COPY data/crRFD.conf data/log4j.xml data/InterfacesList.xml /etc/config/
 
 # Copy scripts
-COPY data/occu/run.sh /
+COPY data/run.sh /
 
 WORKDIR /data
 CMD [ "/run.sh" ]
